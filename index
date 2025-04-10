@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irrigation Dashboard</title>
+</head>
+<body>
+    <h1>Irrigation System Dashboard</h1>
+    <p>Soil Moisture: <span id="soilMoisture">Loading...</span></p>
+    <p>Temperature: <span id="temperature">Loading...</span></p>
+    <p>Humidity: <span id="humidity">Loading...</span></p>
+    <button onclick="controlPump('ON')">Turn Pump ON</button>
+    <button onclick="controlPump('OFF')">Turn Pump OFF</button>
+
+    <script>
+        function fetchData() {
+            fetch('http://yourwebsite.com/getData.php')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('soilMoisture').innerText = data.soilMoisture;
+                    document.getElementById('temperature').innerText = data.temperature + ' °C';
+                    document.getElementById('humidity').innerText = data.humidity + ' %';
+                });
+        }
+
+        function controlPump(command) {
+            fetch('http://yourwebsite.com/controlPump.php?command=' + command)
+                .then(() => alert('Pump turned ' + command));
+        }
+
+        setInterval(fetchData, 5000); // Fetch data every 5 seconds
+        fetchData(); // Initial fetch
+    </script>
+</body>
+</html>
