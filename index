@@ -31,6 +31,7 @@
 
         setInterval(fetchData, 5000); // Fetch data every 5 seconds
         fetchData(); // Initial fetch
+uuuuuuu
     </script>
 </body>
 </html>
