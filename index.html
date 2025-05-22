@@ -331,6 +331,93 @@
         .floating {
             animation: floating 3s ease-in-out infinite;
         }
+
+        .live-chat {
+            position: fixed;
+            bottom: 120px;
+            right: 40px;
+            background: #fff;
+            border-radius: 50px;
+            padding: 15px 25px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .live-chat:hover {
+            transform: translateY(-3px);
+            background: var(--light-green);
+        }
+        
+        .calculator-tool {
+            background: var(--light-green);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-card {
+            border-left: 4px solid var(--primary-green);
+            background: white;
+            padding: 25px;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .testimonial-photo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        
+        .blog-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .case-study-badge {
+            position: absolute;
+            top: 15px;
+            left: -5px;
+            background: var(--primary-green);
+            color: white;
+            padding: 5px 20px;
+            transform: rotate(-15deg);
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .interactive-map {
+            height: 400px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .dashboard-widget {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+        }
         
         @keyframes floating {
             0% { transform: translateY(0px); }
@@ -344,7 +431,7 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <i class="bi bi-droplet-half"></i> ቀንበር
+                <i class="bi bi-droplet-half"></i> Kenber Smart Irrigation
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -373,6 +460,7 @@
             </div>
         </div>
     </nav>
+    
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -686,6 +774,151 @@
     <a href="https://wa.me/251912345678" class="whatsapp-float animate__animated animate__bounceIn animate__delay-2s" target="_blank">
         <i class="bi bi-whatsapp"></i>
     </a>
+
+    <!-- Add these new sections after existing content -->
+
+    <!-- Live Chat -->
+    <div class="live-chat animate__animated animate__bounceIn animate__delay-3s">
+        <i class="bi bi-chat-dots-fill me-2 text-primary"></i>
+        Chat with Our Experts
+    </div>
+
+    <!-- Water Savings Calculator -->
+    <section class="py-5 bg-light" id="calculator">
+        <div class="container">
+            <h2 class="text-center section-title">Savings Calculator</h2>
+            <div class="calculator-tool">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Farm Size (hectares)</label>
+                            <input type="range" class="form-range" min="1" max="50" id="farmSize">
+                            <div class="d-flex justify-content-between">
+                                <small>1 ha</small>
+                                <small>50 ha</small>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Current Water Usage (m³/month)</label>
+                            <input type="number" class="form-control" id="currentUsage">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="dashboard-widget">
+                            <h4>Projected Savings</h4>
+                            <div class="display-4 text-primary" id="savingsPercentage">40%</div>
+                            <p class="text-muted">Potential water reduction</p>
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar bg-success" style="width: 40%"></div>
+                            </div>
+                            <p class="mt-3"><i class="bi bi-currency-dollar"></i> Estimated annual savings: <span id="annualSavings">$0</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Testimonials -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Success Stories</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="case-study-badge">Case Study</div>
+                        <p>"Kenber's system increased our yield by 40% while reducing water usage by half. A game-changer!"</p>
+                        <div class="testimonial-author">
+                            <img src="https://i.pravatar.cc/50" class="testimonial-photo" alt="Farmer">
+                            <div>
+                                <h6>Alemu Bekele</h6>
+                                <small class="text-muted">Coffee Farmer, Sidama</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add 2 more testimonials -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="py-5 bg-light" id="blog">
+        <div class="container">
+            <h2 class="text-center section-title">Agricultural Insights</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card blog-card">
+                        <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Blog Post">
+                        <div class="card-body">
+                            <h5 class="card-title">Smart Water Management</h5>
+                            <p class="card-text">Learn modern irrigation techniques for Ethiopian highlands...</p>
+                            <a href="#" class="btn btn-link text-primary">Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add 2 more blog posts -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Map -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Installation Map</h2>
+            <div class="interactive-map">
+                <div class="text-center mt-5">
+                    <h4 class="text-muted">Live Map of Kenber Systems in Ethiopia</h4>
+                    <p class="text-muted">(Simulated installation points)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile App Promotion -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2>Control Your Irrigation Anywhere</h2>
+                    <p>Download our mobile app for real-time monitoring and control of your irrigation system.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="btn btn-light">
+                            <i class="bi bi-google-play"></i> Play Store
+                        </a>
+                        <a href="#" class="btn btn-light">
+                            <i class="bi bi-apple"></i> App Store
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="https://www.freeiconspng.com/uploads/iphone-x-pictures-5.png" class="img-fluid floating" style="max-height: 400px;" alt="Mobile App">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add this JavaScript -->
+    <script>
+        // Calculator functionality
+        document.getElementById('farmSize').addEventListener('input', updateCalculator);
+        document.getElementById('currentUsage').addEventListener('input', updateCalculator);
+
+        function updateCalculator() {
+            const size = document.getElementById('farmSize').value;
+            const usage = document.getElementById('currentUsage').value;
+            const savings = size * 0.4 + usage * 0.3;
+            
+            document.getElementById('savingsPercentage').textContent = Math.min(Math.floor(savings), 70) + '%';
+            document.getElementById('annualSavings').textContent = '$' + (size * 150 + usage * 0.5).toLocaleString();
+            
+            document.querySelector('.progress-bar').style.width = Math.min(savings, 70) + '%';
+        }
+
+        // Initialize calculator
+        updateCalculator();
+    </script>
+
 
     <!-- Footer -->
     <footer class="text-center">
