@@ -525,6 +525,77 @@
         .users-icons img:first-child {
             margin-left: 0;
         }
+
+                /* Dark Mode Styles */
+        [data-theme="dark"] {
+            --primary-green: #2aa876;
+            --dark-green: #1e8a5e;
+            --light-green: #1a3a2e;
+        }
+
+        [data-theme="dark"] body {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        [data-theme="dark"] .navbar {
+            background-color: #1e1e1e;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+        }
+
+        [data-theme="dark"] .navbar.scrolled {
+            background-color: rgba(30,30,30,0.95);
+        }
+
+        [data-theme="dark"] .card,
+        [data-theme="dark"] .contact-info,
+        [data-theme="dark"] .dashboard-widget,
+        [data-theme="dark"] .maintenance-widget,
+        [data-theme="dark"] form {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        [data-theme="dark"] .bg-light {
+            background-color: #2d2d2d !important;
+        }
+
+        [data-theme="dark"] .text-muted {
+            color: #a0a0a0 !important;
+        }
+
+        [data-theme="dark"] .pricing-features li {
+            border-bottom-color: #444;
+        }
+
+        [data-theme="dark"] .testimonial-card {
+            background-color: #1e1e1e;
+            border-left-color: var(--primary-green);
+        }
+
+        [data-theme="dark"] .comparison-table th {
+            background-color: var(--dark-green);
+        }
+
+        [data-theme="dark"] .social-proof {
+            background-color: #1a3a2e;
+        }
+
+        [data-theme="dark"] .calculator-tool {
+            background-color: #1a3a2e;
+        }
+
+        [data-theme="dark"] .btn-outline-light {
+            color: #e0e0e0;
+            border-color: #e0e0e0;
+        }
+
+        [data-theme="dark"] .btn-outline-light:hover {
+            color: #121212;
+            background-color: #e0e0e0;
+        }
+
     </style>
 </head>
 <body>
@@ -534,6 +605,10 @@
             <a class="navbar-brand" href="#">
                 <i class="bi bi-droplet-half"></i> ቀንበር
             </a>
+            <button id="darkModeToggle" class="btn btn-sm ms-auto me-2" title="Toggle Dark Mode">
+                <i class="bi bi-moon-fill"></i>
+            </button>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -1213,6 +1288,31 @@
         document.querySelector('.live-chat').addEventListener('click', function() {
             alert('Chat system would open here. In a real implementation, this would connect to a live chat service.');
         });
+
+                // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const htmlElement = document.documentElement;
+
+        // Check for saved user preference
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            htmlElement.setAttribute('data-theme', 'dark');
+            darkModeToggle.innerHTML = '<i class="bi bi-sun-fill"></i>';
+        }
+
+        // Toggle dark mode
+        darkModeToggle.addEventListener('click', function() {
+            if (htmlElement.getAttribute('data-theme') === 'dark') {
+                htmlElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                darkModeToggle.innerHTML = '<i class="bi bi-moon-fill"></i>';
+            } else {
+                htmlElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                darkModeToggle.innerHTML = '<i class="bi bi-sun-fill"></i>';
+            }
+        });
+
     </script>
 </body>
 </html>       
